@@ -1,0 +1,4 @@
+interface:
+  display_name: "Watercolor Object"
+  short_description: "Paint objects from images as isolated watercolors"
+  default_prompt: "Use $watercolor-object to turn the main object in this image into a watercolor painting on a transparent background."
