@@ -15,7 +15,7 @@ def build(output):
     sums = []
     archives = []
     for name in SKILLS:
-        source = ROOT / 'skills' / name
+        source = ROOT / 'watercolor-skills' / name
         skill = source / 'SKILL.md'
         text = skill.read_text(encoding='utf-8')
         if not text.startswith('---\n') or '\nname: ' + name + '\n' not in text:

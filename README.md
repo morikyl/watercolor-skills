@@ -1,11 +1,29 @@
-# Watercolor Skills
+# Skills
+
+A collection of reusable skills by Mori Liu. Related skills live in category folders so new collections can be added alongside watercolor.
+
+## Collections
+
+| Folder | Skills |
+| --- | --- |
+| [`watercolor-skills/`](watercolor-skills/) | `watercolor-object`, `watercolor-object-p5-brush` |
+
+## Command installation
+
+After this repository is published publicly as `morikyl/skills`, install the watercolor collection with:
+
+```sh
+npx skills@latest add https://github.com/morikyl/skills/tree/main/watercolor-skills
+```
+
+Choose either or both skills and your supported local agent in the installer. This command does not upload skills into a ChatGPT web account; use the upload instructions below for that.
 
 Turn a photo's object into an isolated watercolor illustration. Two portable [Agent Skills](https://agentskills.io), by Mori Liu.
 
 | Skill | Creates | Requires |
 | --- | --- | --- |
-| [`watercolor-object`](skills/watercolor-object/SKILL.md) | A watercolor image, transparent by default | Vision + an image editing/generation tool that accepts reference images |
-| [`watercolor-object-p5-brush`](skills/watercolor-object-p5-brush/SKILL.md) | Editable p5.js / p5.brush sketch and an exported PNG, white by default | Vision + file/code tools; a browser with WebGL for rendering and export |
+| [`watercolor-object`](watercolor-skills/watercolor-object/SKILL.md) | A watercolor image, transparent by default | Vision + an image editing/generation tool that accepts reference images |
+| [`watercolor-object-p5-brush`](watercolor-skills/watercolor-object-p5-brush/SKILL.md) | Editable p5.js / p5.brush sketch and an exported PNG, white by default | Vision + file/code tools; a browser with WebGL for rendering and export |
 
 Both preserve the object's shape, viewpoint and colors, remove surroundings, and expose independent **detail / transparency / softness** controls. Defaults: **35 / 75 / 55**. These are artistic directions, not pixel measurements.
 
@@ -75,7 +93,7 @@ Copy the skill folders into the directory your harness discovers:
 python3 scripts/install.py --destination /path/to/harness/skills
 ```
 
-Or have the agent read `skills/<name>/SKILL.md` explicitly before the task. For a custom harness, expose each skill's `name` and `description` for selection, load its full instructions when selected, supply the source image through your model's image input, and provide the required tools. See the [Agent Skills integration guide](https://agentskills.io/integrate-skills).
+Or have the agent read `watercolor-skills/<name>/SKILL.md` explicitly before the task. For a custom harness, expose each skill's `name` and `description` for selection, load its full instructions when selected, supply the source image through your model's image input, and provide the required tools. See the [Agent Skills integration guide](https://agentskills.io/integrate-skills).
 
 **Portable instructions do not guarantee execution in every harness.** The image variant needs reference-image editing; the p5 variant needs code execution and browser/WebGL rendering for a verified export. No API keys, image service, p5 runtime or browser are included. Do not claim an image was rendered when those tools are missing.
 

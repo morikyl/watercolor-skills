@@ -28,7 +28,7 @@ class DistributionTests(unittest.TestCase):
             destination = Path(temp) / 'skills'
             installer.install(destination, installer.SKILLS)
             for name in installer.SKILLS:
-                source = ROOT / 'skills' / name
+                source = ROOT / 'watercolor-skills' / name
                 for file in source.rglob('*'):
                     if file.is_file():
                         self.assertEqual(file.read_bytes(), (destination / name / file.relative_to(source)).read_bytes())
@@ -83,13 +83,13 @@ class DistributionTests(unittest.TestCase):
                     for name in z.namelist():
                         self.assertTrue(name.startswith(archive.stem + '/'))
                         self.assertNotIn('..', Path(name).parts)
-                        self.assertEqual(z.read(name), (ROOT / 'skills' / name).read_bytes())
+                        self.assertEqual(z.read(name), (ROOT / 'watercolor-skills' / name).read_bytes())
                 checksum = hashlib.sha256(archive.read_bytes()).hexdigest()
                 self.assertIn(checksum + '  ' + archive.name, (archive.parent / 'SHA256SUMS').read_text())
 
     def test_skill_metadata_and_no_personal_paths(self):
         for name in installer.SKILLS:
-            text = (ROOT / 'skills' / name / 'SKILL.md').read_text()
+            text = (ROOT / 'watercolor-skills' / name / 'SKILL.md').read_text()
             fields = text.split('---', 2)[1]
             self.assertIn('\nname: ' + name + '\n', fields)
             self.assertIn('\ndescription: ', fields)

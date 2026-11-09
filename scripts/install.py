@@ -16,7 +16,7 @@ def install(destination, names):
     for name in names:
         if name not in SKILLS:
             raise ValueError('Unknown skill: ' + name)
-        if not (ROOT / 'skills' / name / 'SKILL.md').is_file():
+        if not (ROOT / 'watercolor-skills' / name / 'SKILL.md').is_file():
             raise ValueError('Missing source skill: ' + name)
         if os.path.lexists(destination / name):
             raise FileExistsError('Refusing to overwrite: ' + str(destination / name))
@@ -27,7 +27,7 @@ def install(destination, names):
             target = destination / name
             target.mkdir()  # Exclusive creation: do not adopt an existing folder.
             created.append(target)
-            shutil.copytree(ROOT / 'skills' / name, target, dirs_exist_ok=True)
+            shutil.copytree(ROOT / 'watercolor-skills' / name, target, dirs_exist_ok=True)
     except Exception:
         for target in reversed(created):
             shutil.rmtree(target)
