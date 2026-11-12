@@ -6,14 +6,14 @@ A collection of reusable skills by Mori Liu. Related skills live in category fol
 
 | Folder | Skills |
 | --- | --- |
-| [`watercolor-skills/`](watercolor-skills/) | `watercolor-object`, `watercolor-object-p5-brush` |
+| [`watercolor-skills/`](watercolor-skills/) | `watercolor-obj`, `watercolor-obj-p5` |
 
 ## Command installation
 
-After this repository is published publicly as `morikyl/skills`, install the watercolor collection with:
+Install both watercolor skills with:
 
 ```sh
-npx skills@latest add https://github.com/morikyl/skills/tree/main/watercolor-skills
+npx skills@latest add morikyl/skills --skill watercolor-obj watercolor-obj-p5
 ```
 
 Choose either or both skills and your supported local agent in the installer. This command does not upload skills into a ChatGPT web account; use the upload instructions below for that.
@@ -22,8 +22,8 @@ Turn a photo's object into an isolated watercolor illustration. Two portable [Ag
 
 | Skill | Creates | Requires |
 | --- | --- | --- |
-| [`watercolor-object`](watercolor-skills/watercolor-object/SKILL.md) | A watercolor image, transparent by default | Vision + an image editing/generation tool that accepts reference images |
-| [`watercolor-object-p5-brush`](watercolor-skills/watercolor-object-p5-brush/SKILL.md) | Editable p5.js / p5.brush sketch and an exported PNG, white by default | Vision + file/code tools; a browser with WebGL for rendering and export |
+| [`watercolor-obj`](watercolor-skills/watercolor-obj/SKILL.md) | A watercolor image, transparent by default | Vision + an image editing/generation tool that accepts reference images |
+| [`watercolor-obj-p5`](watercolor-skills/watercolor-obj-p5/SKILL.md) | Editable p5.js / p5.brush sketch and an exported PNG, white by default | Vision + file/code tools; a browser with WebGL for rendering and export |
 
 Both preserve the object's shape, viewpoint and colors, remove surroundings, and expose independent **detail / transparency / softness** controls. Defaults: **35 / 75 / 55**. These are artistic directions, not pixel measurements.
 
@@ -37,7 +37,7 @@ Download or clone this repository, then choose your setup below. Python 3.9+ is 
 2. Where custom skills are available, open **Plugins → Skills → Create → Upload from your computer** and upload each skill separately. Availability depends on your account, workspace and product surface.
 3. Attach a photo and ask:
 
-> Use watercolor-object to paint the cup in this photo on a transparent background. Detail 35, transparency 75, softness 55.
+> Use watercolor-obj to paint the cup in this photo on a transparent background. Detail 35, transparency 75, softness 55.
 
 If your account has no skill upload UI, attach the relevant `SKILL.md` to a chat and ask ChatGPT to follow it for the attached photo. This provides the instructions for that conversation; it does not install a persistent skill.
 
@@ -47,7 +47,7 @@ If your account has no skill upload UI, attach the relevant `SKILL.md` to a chat
 2. Open **Customize → Skills**, choose **Create skill → Upload a skill**, and upload each ZIP separately. Enable code execution and file creation where required.
 3. Attach a photo and name the skill in your request.
 
-Start with **watercolor-object-p5-brush** in an environment with code and browser tools. The image-editing skill additionally needs a connected image tool; installing a skill does not add that capability to Claude. If browser rendering is unavailable, the assistant can provide code but must report that no verified PNG was produced.
+Start with **watercolor-obj-p5** in an environment with code and browser tools. The image-editing skill additionally needs a connected image tool; installing a skill does not add that capability to Claude. If browser rendering is unavailable, the assistant can provide code but must report that no verified PNG was produced.
 
 ### Claude Code
 
@@ -66,7 +66,7 @@ python3 scripts/install.py --target claude --project /path/to/project
 Then attach/reference your photo and invoke:
 
 ```text
-/watercolor-object-p5-brush Paint this drink on white, detail 35, transparency 75, softness 55. Save the PNG and editable sketch.
+/watercolor-obj-p5 Paint this drink on white, detail 35, transparency 75, softness 55. Save the PNG and editable sketch.
 ```
 
 ### Codex and agents using .agents/skills
@@ -83,7 +83,7 @@ This uses `~/.agents/skills/` or the project's `.agents/skills/`. For a Codex in
 python3 scripts/install.py --target codex
 ```
 
-Invoke by name, for example `$watercolor-object`, with a source image. Local copies and ChatGPT workspace skills have separate installation lifecycles; this installer does not upload to your ChatGPT account.
+Invoke by name, for example `$watercolor-obj`, with a source image. Local copies and ChatGPT workspace skills have separate installation lifecycles; this installer does not upload to your ChatGPT account.
 
 ### Other harnesses / custom agents
 
@@ -99,15 +99,15 @@ Or have the agent read `watercolor-skills/<name>/SKILL.md` explicitly before the
 
 ## Examples
 
-- “Use watercolor-object to turn the shoe on the left into watercolor, transparent background.”
-- “用 watercolor-object 把照片里的花瓶画成水彩，只留花瓶，白底。”
-- “Use watercolor-object-p5-brush to paint this iced coffee on white. Detail 20, transparency 85, softness 65. Give me the editable sketch and PNG.”
+- “Use watercolor-obj to turn the shoe on the left into watercolor, transparent background.”
+- “用 watercolor-obj 把照片里的花瓶画成水彩，只留花瓶，白底。”
+- “Use watercolor-obj-p5 to paint this iced coffee on white. Detail 20, transparency 85, softness 65. Give me the editable sketch and PNG.”
 
 Always supply a source photo. Attach style references separately and label them as style references.
 
 ## Install behavior
 
-The installer copies files locally and makes no network requests. It installs both skills unless you select `--skill watercolor-object` or `--skill watercolor-object-p5-brush`. It refuses to overwrite any existing skill, including symlinks; choose another destination or remove your old copy yourself. It never edits your original source skills.
+The installer copies files locally and makes no network requests. It installs both skills unless you select `--skill watercolor-obj` or `--skill watercolor-obj-p5`. It refuses to overwrite any existing skill, including symlinks; choose another destination or remove your old copy yourself. It never edits your original source skills.
 
 To uninstall, remove only the named skill folders from the installation destination. Other skills remain untouched.
 

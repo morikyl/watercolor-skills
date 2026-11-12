@@ -1,5 +1,5 @@
 ---
-name: watercolor-object
+name: watercolor-obj
 description: Turn an object in an existing image into an isolated hand-painted watercolor illustration on a transparent or plain white background. Use for watercolor object cutouts from photos or illustrations, not full-scene paintings or poster layouts.
 ---
 
@@ -64,8 +64,8 @@ No background paper, scenery, ground shadow, halo, splashes outside the object, 
 
 ## Example requests
 
-- "Use $watercolor-object to turn the cup in this photo into watercolor, transparent background."
-- "用 $watercolor-object 把这张图里的花瓶画成水彩，只留花瓶，白底。"
+- "Use $watercolor-obj to turn the cup in this photo into watercolor, transparent background."
+- "用 $watercolor-obj 把这张图里的花瓶画成水彩，只留花瓶，白底。"
 - "Turn the shoe on the left into an isolated watercolor illustration."
 
-- "Use $watercolor-object on this real photo, detail 35, transparency 75, softness 55, white background."
+- "Use $watercolor-obj on this real photo, detail 35, transparency 75, softness 55, white background."

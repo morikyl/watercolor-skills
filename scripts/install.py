@@ -7,7 +7,7 @@ import shutil
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ('watercolor-object', 'watercolor-object-p5-brush')
+SKILLS = ('watercolor-obj', 'watercolor-obj-p5')
 
 
 def install(destination, names):

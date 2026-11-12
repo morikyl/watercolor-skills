@@ -1,11 +1,11 @@
 ---
-name: watercolor-object-p5-brush
-description: Paint an object from a reference photo as an isolated procedural watercolor using p5.js and p5.brush.js, delivering editable sketch code and a PNG. Use for the p5.brush version of watercolor-object rather than AI image generation.
+name: watercolor-obj-p5
+description: Paint an object from a reference photo as an isolated procedural watercolor using p5.js and p5.brush.js, delivering editable sketch code and a PNG. Use for the p5.brush version of watercolor-obj rather than AI image generation.
 ---
 
 # Watercolor Object with p5.brush
 
-Create an actual p5.brush painting from a supplied photo. This is a separate implementation of watercolor-object: the assistant interprets the subject into geometry and the library renders the pigment. It is not automatic photo segmentation or a promise of photographic fidelity. Do not substitute an image-generation service, a filtered photo, or a generated raster embedded in a canvas for the painting.
+Create an actual p5.brush painting from a supplied photo. This is a separate implementation of watercolor-obj: the assistant interprets the subject into geometry and the library renders the pigment. It is not automatic photo segmentation or a promise of photographic fidelity. Do not substitute an image-generation service, a filtered photo, or a generated raster embedded in a canvas for the painting.
 
 ## Subject and visual identity
 
@@ -44,4 +44,4 @@ For transparent exports, do not paint white into areas intended as holes or empt
 
 ## Example invocation
 
-“Use $watercolor-object-p5-brush to paint this drink on white, detail 35, transparency 75, softness 55. Save the PNG and editable sketch.”
+“Use $watercolor-obj-p5 to paint this drink on white, detail 35, transparency 75, softness 55. Save the PNG and editable sketch.”
